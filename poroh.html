@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кисловодск - Достопримечательности</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="places.html">Достопримечательности</a>
+        <a href="gallery.html">Галерея</a>
+    </nav>
+</header>
+<section class="hero">
+    <h1 class="fade"> Наше заведение открыто для вас</h1>
+    <p class="fade">У нас вы получите незабываемые чувства</p>
+    <p class="fade">Можете заказать столик для Вас и Вашей второй половинке</p>
+    <a href="https://t.me/@prx_001?text=Здравсвуйте!%20Я%20хочу%20заказать%20столик%20с%20видом%20на%20реку." target="_blank">
+    <button>Написать в Telegram</button>
+    <button id="tgButton">Написать в Telegram</button>
+
+<script>
+document.getElementById("tgButton").onclick = () => {
+    const username = "@prx_001"; 
+    const text = "Привет! Я хочу узнать подробности.";
+    const url = `https://t.me/${username}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+};
+</script>
+</a>
+</section>
+<section class="map">
+    <h2>Панорама: Пороховая 55, Кисловодск</h2>
+    <iframe
+        src="https://yandex.com/map-widget/v1/?ll=42.736191%2C43.936503&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxOTEwOTI3ODIxEmzQoNC-0YHRgdC40Y8sINCh0YLQsNCy0YDQvtC_0L7Qu9GM0YHQutC40Lkg0LrRgNCw0LksINCa0LjRgdC70L7QstC-0LTRgdC6LCDQn9C-0YDQvtGF0L7QstCw0Y8g0YPQu9C40YbQsCwgNTUiCg3b8SpCFfq-L0I%2C&panorama%5Bdirection%5D=21.648743%2C-2.803335&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=42.735945%2C43.936630&panorama%5Bspan%5D=114.650528%2C60.000000&z=17.11"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+<section class="places hidden">
+    <h2>Достопримечательности Кисловодска</h2>
+    <ul>
+        <li>🏛 Нарзанная галерея</li>
+        <li>🌳 Курортный парк</li>
+        <li>🏞 Долина роз</li>
+        <li>🏔 Горы</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2026 Сайт о Кисловодске</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

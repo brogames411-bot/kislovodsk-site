@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to bottom, #000, #1e293b);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 60px;
+    color: #38bdf8;
+}
+
+/* плавное появление сверху */
+.fade {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeIn 1s forwards;
+}
+
+.fade:nth-child(1) { animation-delay: 0.3s; }
+.fade:nth-child(2) { animation-delay: 0.6s; }
+.fade:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* секции */
+section {
+    padding: 60px;
+    text-align: center;
+}
+
+/* появление при скролле */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* список */
+.places ul {
+    list-style: none;
+    padding: 0;
+}
+
+.places li {
+    margin: 10px 0;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.places li:hover {
+    transform: scale(1.1);
+    color: #38bdf8;
+}
+
+/* галерея */
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.images img {
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.images img:hover {
+    transform: scale(1.1);
+}
+
+/* кнопка */
+button {
+    padding: 15px 30px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #0ea5e9;
+}
+
+/* футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
+.map {
+    padding: 40px;
+    text-align: center;
+}
+.map h2 {
+    margin-bottom: 20px;
+}
+.slider {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.slides {
+    overflow: hidden;
+    position: relative;
+}
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+}
+button#prev, button#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #38bdf8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+button#prev { left: 10px; }
+button#next { right: 10px; }
+/* Навигация */
+.navbar {
+    background: #020617;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.navbar nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #38bdf8;
+}
