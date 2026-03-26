@@ -164,3 +164,40 @@ button#next { right: 10px; }
 .navbar nav a:hover {
     color: #38bdf8;
 }
+/* Раздел рукодельниц */
+.crafts {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.crafts h2 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+.crafts-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.craft {
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.craft img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.craft p {
+    font-size: 16px;
+    color: #e2e8f0;
+}
+
+.craft:hover {
+    transform: scale(1.05);
+}
