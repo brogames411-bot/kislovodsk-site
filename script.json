@@ -55,4 +55,18 @@ prevBtn.addEventListener("click", () => {
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     showSlide(currentSlide);
 });
+const images = document.querySelectorAll(".gallery-container img");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+
+images.forEach(img => {
+    img.onclick = () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+    };
+});
+
+modal.onclick = () => {
+    modal.style.display = "none";
+};
 window.addEventListener("scroll", showOnScroll);
