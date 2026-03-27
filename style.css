@@ -321,3 +321,18 @@ button#next { right: 10px; }
         max-height: 250px;
     }
 }
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+}
