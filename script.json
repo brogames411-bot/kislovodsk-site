@@ -33,4 +33,26 @@ if (slides.length > 0 && nextBtn && prevBtn) {
         showSlide(currentSlide);
     });
 }
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+// вперед
+nextBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+});
+
+// назад
+prevBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+});
 window.addEventListener("scroll", showOnScroll);
