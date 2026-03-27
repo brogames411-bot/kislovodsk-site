@@ -201,3 +201,33 @@ button#next { right: 10px; }
 .craft:hover {
     transform: scale(1.05);
 }
+.gallery {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+/* сетка */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* картинки */
+.gallery-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* эффект при наведении */
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
