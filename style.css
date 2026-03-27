@@ -446,8 +446,9 @@ button#next { right: 10px; }
     }
 
     .gallery-container img {
-        height: 110px;
-    }
+    object-fit: contain;
+    background: #000;
+}
 
     .close-btn {
         top: 10px;
