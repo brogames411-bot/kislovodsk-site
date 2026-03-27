@@ -312,3 +312,12 @@ button#next { right: 10px; }
     border-radius: 15px;
     overflow: hidden;
 }
+@media (max-width: 768px) {
+    .slides {
+        height: 250px;
+    }
+
+    .slide {
+        max-height: 250px;
+    }
+}
