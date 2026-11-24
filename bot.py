@@ -2724,9 +2724,11 @@ async def video_to_circle(
     callback: CallbackQuery
 ):
 
+    audio_converter_users.discard(callback.from_user.id)
     converter_users.add(
         callback.from_user.id
     )
+    logger.info("Video-to-circle mode enabled: user_id=%s", callback.from_user.id)
 
     await replace_menu(
         callback,
@@ -2757,6 +2759,7 @@ async def cancel_converter(
     converter_users.discard(
         callback.from_user.id
     )
+    audio_converter_users.discard(callback.from_user.id)
 
     await show_main_menu(
         owner_id=callback.from_user.id,
@@ -2786,9 +2789,11 @@ async def video_to_audio(
     callback: CallbackQuery
 ):
 
+    converter_users.discard(callback.from_user.id)
     audio_converter_users.add(
         callback.from_user.id
     )
+    logger.info("Video-to-audio mode enabled: user_id=%s", callback.from_user.id)
 
     await replace_menu(
         callback,
@@ -2813,6 +2818,7 @@ async def cancel_audio_converter(
     audio_converter_users.discard(
         callback.from_user.id
     )
+    converter_users.discard(callback.from_user.id)
 
     await show_main_menu(
         owner_id=callback.from_user.id,
@@ -2831,7 +2837,14 @@ async def cancel_audio_converter(
         pass
 
 
-@dp.message(F.chat.type == "private", F.video)
+@dp.message(
+    lambda message: (
+        message.chat.type == "private"
+        and message.video is not None
+        and message.from_user is not None
+        and message.from_user.id in audio_converter_users
+    )
+)
 async def extract_audio_handler(
     message: types.Message
 ):
@@ -3036,8 +3049,12 @@ async def extract_audio_handler(
 # =========================================================
 
 @dp.message(
-    F.chat.type == "private",
-    F.video
+    lambda message: (
+        message.chat.type == "private"
+        and message.video is not None
+        and message.from_user is not None
+        and message.from_user.id in converter_users
+    )
 )
 async def convert_video_handler(
     message: types.Message
@@ -3049,6 +3066,14 @@ async def convert_video_handler(
 
     if user_id not in converter_users:
         return
+
+    logger.info(
+        "Video received for circle conversion: user_id=%s message_id=%s duration=%s file_size=%s",
+        user_id,
+        message.message_id,
+        getattr(message.video, "duration", None),
+        getattr(message.video, "file_size", None)
+    )
 
     converter_users.discard(
         user_id
